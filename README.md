@@ -1,6 +1,7 @@
 ## Python Paint Tool Created by: Ayman Taleb 2018
 
 This is a painting app like MS Paint made with turtles. I made it for my final in my first CS class. You can only draw one line. I plan on improving it. 
+![Main Window](mainWindow.png)
 
 ## Installation
 
