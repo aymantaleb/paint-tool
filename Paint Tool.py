@@ -1,8 +1,9 @@
 import turtle
 import sys
+import time
 from tkinter import *
 
-sys.setrecursionlimit(99999999)
+sys.setrecursionlimit(1000)
 wn = turtle.Screen()
 red = turtle.Turtle()
 blue = turtle.Turtle()
@@ -52,15 +53,23 @@ decSize.shape('triangle')
 decSize.shapesize(2)
 decSize.right(90)
 
+turtleMoving = False
+
 def draw(event):
+	global turtleMoving
+	if turtleMoving:
+		return
+	turtleMoving = True
 	if event.y > 63:
 		print(event.x, event.y)
 		width = turtle.window_width()
 		height = turtle.window_height()
 		tool.goto(event.x-width/2, height/2 - event.y)
-		tool.ondrag(tool.pendown())
+		tool.pendown()
+		time.sleep(0.001)
+	turtleMoving = False
 
-
+tool.ondrag(None)
 canvas.bind('<B1-Motion>', draw)
   
 def Red(x, y):
